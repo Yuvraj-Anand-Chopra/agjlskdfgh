@@ -8,4 +8,4 @@ This repository demonstrates a matrix CI strategy in GitHub Actions that builds 
 - Artifacts prefixed as build-00750ec-...
 - Actions identifier: matrix-00750ec appears in workflow logs
 
-**Contact:** your-email@example.com
+**Contact:** 24f2002642@ds.study.iitm.ac.in
