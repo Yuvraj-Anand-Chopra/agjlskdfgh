@@ -1,0 +1,36 @@
+name: Multi-Platform Matrix Build with Artifacts
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11']
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: matrix-00750ec
+        run: |
+          echo "Building for Python version ${{ matrix.python-version }} (step: matrix-00750ec)"
+
+      - name: Generate build artifact
+        run: |
+          echo "Build output for Python ${{ matrix.python-version }} at $(date)" > output.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-00750ec-py${{ matrix.python-version }}
+          path: output.txt
